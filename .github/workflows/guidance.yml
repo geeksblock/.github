@@ -1,0 +1,28 @@
+name: Guidance checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: guidance-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    name: Guidance checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install pinned YAML parser
+        run: 'python3 -m pip install --only-binary=:all: -r requirements.txt'
+      - name: Check source formatting
+        run: git diff --check HEAD^ HEAD
+      - name: Validate guidance and forms
+        run: python3 scripts/check-guidance.py

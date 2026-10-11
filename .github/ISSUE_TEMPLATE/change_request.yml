@@ -1,0 +1,32 @@
+name: Change request
+description: Propose a behavior, infrastructure, automation or delivery change.
+body:
+  - type: markdown
+    attributes:
+      value: Search existing issues and PRs first. Keep credentials, customer data and internal deployment details out of public reports.
+  - type: textarea
+    id: need
+    attributes:
+      label: What problem should this solve?
+      description: Name the affected users or services and the intended outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and impact
+      description: Describe the proposed behavior, boundaries, dependencies and any affected permissions, data, CI or release paths.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance and delivery
+      description: Explain how to verify it, what needs deployment or migration, and how to roll it back. Product readiness includes UI-only onboarding acceptance.
+    validations:
+      required: true
+  - type: textarea
+    id: related
+    attributes:
+      label: Related issues or pull requests
+      description: Include open or draft overlaps and prerequisites, or state None.
