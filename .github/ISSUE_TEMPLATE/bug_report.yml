@@ -1,0 +1,32 @@
+name: Bug report
+description: Describe an observed failure and how to verify its fix.
+body:
+  - type: markdown
+    attributes:
+      value: Use synthetic examples. Omit credentials, customer information and private operational details. Follow the repository's security reporting instructions for vulnerabilities.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and who it affects.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How can we reproduce it?
+      description: Include the relevant version and environment, steps, and the expected result.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: How will we know it is fixed?
+      description: State a concrete acceptance check and any refusal or compatibility cases.
+    validations:
+      required: true
+  - type: textarea
+    id: related
+    attributes:
+      label: Related work and safe evidence
+      description: Link existing issues or PRs, including drafts. Attach redacted logs or screenshots when useful.
